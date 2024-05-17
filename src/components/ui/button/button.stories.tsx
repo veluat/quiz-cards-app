@@ -6,7 +6,7 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'tertiary', 'link'],
     },
   },
   component: Button,
@@ -33,20 +33,30 @@ export const Secondary: Story = {
   },
 }
 
-export const FullWidth: Story = {
+export const Tertiary: Story = {
   args: {
-    children: 'Full Width Primary Button',
+    children: 'Tertiary Button',
     disabled: false,
-    fullWidth: true,
-    variant: 'primary',
+    variant: 'tertiary',
   },
 }
 
 export const AsLink: Story = {
   args: {
     as: 'a',
-    children: 'Link that looks like a button',
-    href: '#',
+    children: 'Link-button',
+    disabled: false,
+    href: 'https://www.google.com/',
+    target: '_blank',
+    variant: 'link',
+  },
+}
+
+export const FullWidth: Story = {
+  args: {
+    children: 'Full Width Button',
+    disabled: false,
+    fullWidth: true,
     variant: 'primary',
   },
 }
