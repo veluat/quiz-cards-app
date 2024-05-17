@@ -1,0 +1,12 @@
+@import '@/styles/mixins';
+
+.root {
+  @include container(420px);
+
+  height: 552px;
+  background-color: var(--color-dark-700);
+  border: 1px solid rgb(49 49 49 / 10%);
+  box-shadow:
+    -1 -1 2 rgb(0 0 0 / 10%),
+    1 1 2 rgb(0 0 0 / 10%);
+}
