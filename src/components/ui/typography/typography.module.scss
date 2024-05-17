@@ -1,0 +1,65 @@
+@import '@/styles/mixins';
+
+.body1 {
+  @include font(var(--font-size-m), var(--font-weight-regular), var(--line-height-m));
+}
+
+.body2 {
+  @include font(var(--font-size-s), var(--font-weight-regular), var(--line-height-m));
+}
+
+.caption {
+  @include font(var(--font-size-xs), var(--font-weight-regular), var(--line-height-s));
+}
+
+.h1 {
+  @include font(var(--font-size-xxl), var(--font-weight-bold), var(--line-height-l));
+}
+
+.h2 {
+  @include font(var(--font-size-xl), var(--font-weight-bold), var(--line-height-l));
+}
+
+.h3 {
+  @include font(var(--font-size-l), var(--font-weight-bold), var(--line-height-m));
+}
+
+.h4 {
+  @include font(var(--font-size-m), var(--font-weight-bold), var(--line-height-m));
+}
+
+.link1 {
+  @include font(
+    var(--font-size-s),
+    var(--font-weight-regular),
+    var(--line-height-m),
+    var(--color-info-500),
+    'underline'
+  );
+
+  cursor: pointer;
+}
+
+.link2 {
+  @include font(
+    var(--font-size-xs),
+    var(--font-weight-regular),
+    var(--line-height-m),
+    var(--color-info-500),
+    'underline'
+  );
+
+  cursor: pointer;
+}
+
+.overline {
+  @include font(var(--font-size-xs), var(--font-weight-bold), var(--line-height-s));
+}
+
+.subtitle1 {
+  @include font(var(--font-size-m), var(--font-weight-bold), var(--line-height-m));
+}
+
+.subtitle2 {
+  @include font(var(--font-size-s), var(--font-weight-bold), var(--line-height-m));
+}
