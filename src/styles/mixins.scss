@@ -1,0 +1,68 @@
+@mixin container($max-width) {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+@mixin flex(
+  $display: flex,
+  $flex-direction: row,
+  $wrap: nowrap,
+  $justify-content: center,
+  $align-items: center,
+  $gap: 0
+) {
+  display: $display;
+  flex-flow: $flex-direction $wrap;
+  gap: $gap;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin font(
+  $font-size,
+  $font-weight,
+  $line-height,
+  $color: var(--color-light-100),
+  $text-decoration: none
+) {
+  margin: 0;
+
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color;
+  text-decoration: $text-decoration;
+}
+
+@mixin button {
+  @include flex(inline-flex, center, center, 0.625rem);
+  @include font(var(--font-size-m), var(--font-weight-bold), var(--line-height-m));
+
+  all: unset;
+
+  cursor: pointer;
+  user-select: none;
+
+  box-sizing: border-box;
+  padding: 0.375rem 1.75rem;
+
+  text-align: center;
+
+  border-radius: 0.25rem;
+  outline: 2px solid transparent;
+
+  transition: 0.3s;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-info-700);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+}
