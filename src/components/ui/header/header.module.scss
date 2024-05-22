@@ -1,0 +1,17 @@
+@import '@/styles/mixins';
+
+.root {
+  @include container(1280px);
+  @include flex($justify-content: space-between);
+
+  height: 60px;
+  padding: 12px 136px;
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-500);
+
+  .logo {
+    width: 100%;
+    max-width: 156px;
+    height: 36px;
+  }
+}

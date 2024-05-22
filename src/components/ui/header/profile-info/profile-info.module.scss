@@ -1,0 +1,11 @@
+@import '@/styles/mixins';
+
+.content {
+  @include flex($gap: 4px);
+
+  .fonts p {
+    &:nth-child(2) {
+      color: var(--color-dark-100);
+    }
+  }
+}
