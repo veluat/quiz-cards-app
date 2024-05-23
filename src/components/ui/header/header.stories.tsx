@@ -17,9 +17,9 @@ type Story = StoryObj<typeof meta>
 export const AuthorizedUser: Story = {
   args: {
     data: {
-      avatar: '',
+      avatar: 'https://lastfm.freetls.fastly.net/i/u/avatar170s/1a31ec80fdd1668f41682c4617620d3d',
       email: 'user-email.gmail.com',
-      name: 'User name',
+      name: 'Jon Krieger',
     },
     logout: () => {},
   },

@@ -14,4 +14,12 @@
     max-width: 156px;
     height: 36px;
   }
+
+  .user {
+    @include flex($gap: 14px);
+
+    .name {
+      border-bottom: 1px dashed var(--color-light-100);
+    }
+  }
 }
