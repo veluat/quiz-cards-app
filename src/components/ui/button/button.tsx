@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 import { Icon } from '@/components/ui/icon/icon'
+import { Typography } from '@/components/ui/typography'
 import { clsx } from 'clsx'
 
 import s from './button.module.scss'
@@ -30,7 +31,9 @@ export const Button = <T extends ElementType = 'button'>(
   return (
     <Component className={classNames} {...rest}>
       {icon && <Icon height={16} name={icon} width={16} />}
-      {children}
+      <Typography as={'span'} variant={'subtitle2'}>
+        {children}
+      </Typography>
     </Component>
   )
 }
