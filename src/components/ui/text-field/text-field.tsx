@@ -23,7 +23,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsType>(
 
     const isSearchType = type === 'search'
 
-    const displayClearButton = isSearchType && clearField && rest.value
+    const displayClearButton = !isPasswordType && rest.value
 
     const finalType = getFinalType(type, showPassword)
 
