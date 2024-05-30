@@ -62,3 +62,15 @@
     cursor: not-allowed;
   }
 }
+
+@mixin pagination-item {
+  @include flex;
+
+  min-width: 2.4rem;
+  height: 2.4rem;
+
+  &:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--color-info-900);
+  }
+}
