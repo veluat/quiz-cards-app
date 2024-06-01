@@ -12,7 +12,6 @@ export type Option = {
 }
 
 export type RadioGroupProps = {
-  className?: string
   disabled?: boolean
   errorMessage?: string
   name?: string
@@ -21,28 +20,17 @@ export type RadioGroupProps = {
   value?: string
 }
 
-export const RadioGroup: FC<RadioGroupProps> = ({
-  className,
-  disabled,
-  errorMessage,
-  options,
-  ...rest
-}) => {
-  const classes = {
-    label: clsx(s.label, disabled && s.disabled),
-    radioWrapper: clsx(s.radioWrapper, disabled && s.disabled),
-    root: clsx(s.root, className),
-  }
+export const RadioGroup: FC<RadioGroupProps> = ({ errorMessage, options, ...rest }) => {
+  const labelClasses = clsx(s.item, rest.disabled && s.disabled)
 
   return (
-    <RadioGr.Root aria-label={'Aria label'} {...rest} className={classes.root}>
+    <RadioGr.Root aria-label={'Aria label'} {...rest} className={s.root}>
       {options.map(el => (
-        <Typography as={'label'} className={classes.label} key={el.value} variant={'body2'}>
-          <div className={classes.radioWrapper}>
-            <RadioGr.Item className={s.item} value={el.value}>
-              <RadioGr.Indicator className={s.indicator} />
-            </RadioGr.Item>
-          </div>
+        <Typography as={'label'} className={labelClasses} key={el.value} variant={'body2'}>
+          <RadioGr.Item className={s.radio} value={el.value}>
+            <div className={s.frame}></div>
+            <RadioGr.Indicator className={s.indicator} />
+          </RadioGr.Item>
           {el.label}
         </Typography>
       ))}

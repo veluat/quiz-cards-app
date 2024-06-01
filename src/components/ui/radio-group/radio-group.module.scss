@@ -1,0 +1,113 @@
+@import '@/styles/mixins';
+
+.root {
+  @include flex($flex-direction: column, $gap: 12px);
+
+  .error {
+    color: var(--color-danger-300);
+  }
+
+  .item {
+    @include flex($gap: 12px);
+
+    cursor: pointer;
+
+    &.disabled {
+      cursor: auto;
+      color: var(--color-light-900);
+    }
+
+    .indicator {
+      position: relative;
+      z-index: 10;
+
+      width: 8px;
+      height: 8px;
+
+      background-color: var(--color-primary-500);
+      border-radius: 50%;
+    }
+
+    .radio {
+      all: unset;
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+
+      box-sizing: border-box;
+      width: 16px;
+      height: 16px;
+
+      &::before,
+      &::after {
+        content: '';
+
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+
+        display: block;
+
+        width: 36px;
+        height: 36px;
+
+        background-color: transparent;
+        border-radius: 50%;
+
+        transition: 0.3s;
+      }
+
+      &:focus-visible::before {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: var(--color-dark-700);
+      }
+
+      &:hover::before {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: var(--color-dark-500);
+      }
+
+      &:active::after {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: var(--color-primary-900);
+        transition: 0s;
+      }
+
+      &:disabled::before,
+      &:disabled::after {
+        transform: translate(-50%, -50%) scale(0);
+        background-color: transparent;
+      }
+
+      .frame {
+        position: absolute;
+        z-index: 5;
+        inset: 0;
+
+        box-sizing: border-box;
+
+        border: 2px solid var(--color-primary-500);
+        border-radius: 50%;
+      }
+
+      &:disabled {
+        &::before,
+        &::after {
+          transform: translate(-50%, -50%);
+        }
+
+        .frame {
+          border-color: var(--color-primary-900);
+        }
+
+        .indicator {
+          background-color: var(--color-primary-900);
+        }
+      }
+    }
+  }
+}
