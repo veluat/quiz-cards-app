@@ -1,0 +1,23 @@
+@import '@/styles/mixins';
+
+.root {
+  @include flex($gap: 24px);
+
+  .dots {
+    display: grid;
+    place-items: center;
+
+    width: 24px;
+    height: 24px;
+
+    color: var(--color-light-100);
+  }
+
+  .selectBlock {
+    @include flex($gap: 12px);
+  }
+}
+
+.buttons {
+  @include flex($gap: 12px);
+}
