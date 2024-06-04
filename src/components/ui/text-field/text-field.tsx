@@ -10,13 +10,14 @@ export type TextFieldProps = {
   clearField?: () => void
   errorMessage?: string
   label?: string
+  placeholder?: string
   type?: 'password' | 'search' | 'text'
 } & ComponentPropsWithoutRef<'input'>
 
 type PropsType = Omit<ComponentPropsWithoutRef<'input'>, keyof TextFieldProps> & TextFieldProps
 
 export const TextField = forwardRef<HTMLInputElement, PropsType>(
-  ({ className, clearField, errorMessage, label, type = 'text', ...rest }, ref) => {
+  ({ className, clearField, errorMessage, label, placeholder, type = 'text', ...rest }, ref) => {
     const [showPassword, setShowPassword] = useState(false)
 
     const isPasswordType = type === 'password'
@@ -48,6 +49,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsType>(
           <div className={s.container}>
             <input
               className={styles.input}
+              placeholder={placeholder}
               ref={ref}
               type={isPasswordType ? finalType : 'text'}
               {...rest}
