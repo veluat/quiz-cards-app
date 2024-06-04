@@ -1,13 +1,19 @@
-import { ComponentPropsWithoutRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, PropsWithChildren, forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 
 import s from './card.module.scss'
 
-export type CardProps = ComponentPropsWithoutRef<'div'>
+export type CardProps = ComponentPropsWithoutRef<'div'> & PropsWithChildren
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(({ className, ...restProps }, ref) => {
-  const classNames = clsx(s.root, className)
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ children, className, ...restProps }, ref) => {
+    const styles = clsx(s.root, className)
 
-  return <div className={classNames} ref={ref} {...restProps}></div>
-})
+    return (
+      <div className={styles} ref={ref} {...restProps}>
+        {children}
+      </div>
+    )
+  }
+)
