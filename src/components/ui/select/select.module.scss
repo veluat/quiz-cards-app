@@ -1,5 +1,9 @@
 @import '@/styles/mixins';
 
+.root {
+  width: 100%;
+}
+
 .label {
   color: var(--color-dark-100);
 }

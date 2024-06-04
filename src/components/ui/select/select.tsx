@@ -41,13 +41,14 @@ export const Select: FC<SelectPropsType> = ({
   const classes = {
     icon: clsx(s.icon, disabled && s.iconDisabled),
     item: clsx(s.item, small && s.small),
-    root: clsx(s.label, disabled && s.labelDisabled, className),
+    label: clsx(s.label, disabled && s.labelDisabled),
+    root: clsx(s.root, disabled && s.labelDisabled, className),
     trigger: clsx(s.trigger, disabled && s.triggerDisabled, small && s.small),
   }
 
   return (
-    <Label.Root>
-      <Typography as={'label'} className={classes.root} variant={'body2'}>
+    <Label.Root className={classes.root}>
+      <Typography as={'label'} className={classes.label} variant={'body2'}>
         {label}
       </Typography>
       <RadixSelect.Root
