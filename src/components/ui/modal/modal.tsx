@@ -1,8 +1,8 @@
 import { FC, PropsWithChildren } from 'react'
 
 import { Card } from '@/components/ui/card'
-import { Icon } from '@/components/ui/icon/icon'
-import { Typography } from '@/components/ui/typography'
+import { ModalBottom } from '@/components/ui/modal/modal-bottom'
+import { ModalHeader } from '@/components/ui/modal/modal-header'
 import * as Dialog from '@radix-ui/react-dialog'
 
 import s from './modal.module.scss'
@@ -20,17 +20,9 @@ export const Modal: FC<Props> = ({ children, open, setOpen, title }) => {
         <Dialog.Overlay className={s.overlay} forceMount />
         <div className={s.root}>
           <Dialog.Content className={s.window} forceMount>
-            <Card className={s.card}>
-              <div className={s.header}>
-                <Typography as={'h2'} variant={'h2'}>
-                  {title}
-                </Typography>
-                <Dialog.Close asChild>
-                  <Icon height={24} name={'cross'} width={24} />
-                </Dialog.Close>
-              </div>
-              <div className={s.content}>{children}</div>
-            </Card>
+            <ModalHeader title={title} />
+            <Card className={s.card}>{children}</Card>
+            <ModalBottom type={'two'} />
           </Dialog.Content>
         </div>
       </Dialog.Portal>
