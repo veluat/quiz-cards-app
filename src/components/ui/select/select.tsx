@@ -42,7 +42,7 @@ export const Select: FC<SelectPropsType> = ({
     icon: clsx(s.icon, disabled && s.iconDisabled),
     item: clsx(s.item, small && s.small),
     label: clsx(s.label, disabled && s.labelDisabled),
-    root: clsx(s.root, disabled && s.labelDisabled, className),
+    root: clsx(s.root, disabled && s.labelDisabled, small && s.small, className),
     trigger: clsx(s.trigger, disabled && s.triggerDisabled, small && s.small),
   }
 

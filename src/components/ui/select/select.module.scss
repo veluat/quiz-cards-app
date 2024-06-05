@@ -2,6 +2,10 @@
 
 .root {
   width: 100%;
+
+  &.small {
+    width: 60px;
+  }
 }
 
 .label {
