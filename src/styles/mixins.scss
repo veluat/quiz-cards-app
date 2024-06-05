@@ -74,3 +74,54 @@
     outline: 2px solid var(--color-info-900);
   }
 }
+
+@mixin common-animation-control($scale, $color: transparent) {
+  transform: translate(-50%, -50%) scale($scale);
+  background-color: var($color);
+}
+
+@mixin common-animation-interactive(
+  $active-color,
+  $hover-color: --color-dark-500,
+  $circle-size: 36px
+) {
+  &::before,
+  &::after {
+    @include common-animation-control(0);
+
+    content: '';
+
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+
+    width: $circle-size;
+    height: $circle-size;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+  }
+
+  &:focus-visible::before {
+    @include common-animation-control(1, $hover-color);
+  }
+
+  &:hover::before {
+    @include common-animation-control(1, $hover-color);
+  }
+
+  &:active::after {
+    @include common-animation-control(1, $active-color);
+
+    transition: 0s;
+  }
+
+  &:disabled::before,
+  &:disabled::after {
+    @include common-animation-control(0);
+  }
+}

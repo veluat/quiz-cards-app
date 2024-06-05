@@ -1,81 +1,61 @@
 @import '@/styles/mixins';
 
 .label {
-  @include flex($gap: 2px);
+  @include flex($gap: 12px);
 
   cursor: pointer;
+  width: max-content;
 
   &.disabled {
     cursor: initial;
     color: var(--color-dark-100);
   }
 
-  .root {
-    @include flex;
+  .checkbox {
+    @include common-animation-interactive(--color-dark-100);
+
+    all: unset;
 
     cursor: pointer;
 
-    width: 24px;
-    height: 24px;
+    position: relative;
 
-    background-color: transparent;
-    border-radius: 2px;
+    width: 18px;
+    height: 18px;
 
-    &:not([data-state='checked']) {
+    .frame {
+      position: absolute;
+      z-index: 5;
+      inset: 0;
+
+      box-sizing: border-box;
+
       border: 2px solid var(--color-light-900);
-    }
-
-    &[data-state='checked'] {
-      background-color: var(--color-dark-900);
-    }
-
-    &[data-disabled] {
-      pointer-events: none;
-      cursor: initial;
-      border: 2px solid var(--color-dark-100);
-    }
-
-    &:hover:active([data-state='checked']) {
-      background-color: var(--color-dark-100);
-    }
-
-    &:hover:active:not([data-disabled]) {
-      background-color: var(--color-dark-900);
-      border: 2px solid var(--color-light-100);
-    }
-
-    &:hover:active:not([data-state='checked'], [data-disabled]) {
-      background-color: var(--color-dark-100);
-    }
-
-    &[data-state='checked'][data-disabled] {
-      background-color: var(--color-light-700);
-    }
-  }
-
-  .checkboxWrapper {
-    @include flex;
-
-    width: 3.6rem;
-    height: 3.6rem;
-    border-radius: 50%;
-
-    &:hover:not(.disabled) {
-      background-color: var(--color-dark-500);
-    }
-
-    &:hover:active:not(.disabled) {
-      background-color: var(--color-dark-100);
+      border-radius: 2px;
     }
 
     .indicator {
-      @include flex;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
 
-      width: 24px;
-      height: 24px;
+      fill: var(--color-light-100);
+    }
 
-      &:disabled {
-        cursor: initial;
+    &:disabled {
+      cursor: auto;
+
+      &::before,
+      &::after {
+        @include common-animation-control(0);
+      }
+
+      .frame {
+        border-color: var(--color-dark-100);
+      }
+
+      .indicator {
         fill: var(--color-dark-100);
       }
     }
