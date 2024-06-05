@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Typography } from '@/components/ui/typography'
 
-import { Card } from './'
+import { Card } from './card'
 
 const meta = {
   argTypes: {},
@@ -17,5 +17,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: <Typography variant={'h1'}>Card</Typography>,
+    style: { height: '552px' },
   },
 }
