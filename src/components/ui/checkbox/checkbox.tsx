@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { ElementRef, forwardRef } from 'react'
 
 import { Icon } from '@/components/ui/icon/icon'
 import { Typography } from '@/components/ui/typography'
@@ -13,29 +13,30 @@ export type CheckboxProps = {
   disabled?: boolean
   id?: string
   label?: string
-  onChange?: (checked: boolean) => void
+  onCheckedChange?: (checked: boolean) => void
 }
 
-export const Checkbox: FC<CheckboxProps> = props => {
-  const { checked, className, disabled, id, label, onChange } = props
-
-  return (
-    <Typography as={'label'} className={clsx(s.label, disabled && s.disabled, className)}>
-      <RadixCheckbox.Root
-        checked={checked}
-        className={s.checkbox}
-        disabled={disabled}
-        id={id}
-        onCheckedChange={onChange}
-      >
-        <div className={s.frame}></div>
-        {checked && (
-          <RadixCheckbox.Indicator className={s.indicator} forceMount>
-            <Icon height={24} name={'checked'} width={24} />
-          </RadixCheckbox.Indicator>
-        )}
-      </RadixCheckbox.Root>
-      {label}
-    </Typography>
-  )
-}
+export const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, CheckboxProps>(
+  ({ checked, className, disabled, id, label, onCheckedChange }, ref) => {
+    return (
+      <Typography as={'label'} className={clsx(s.label, disabled && s.disabled, className)}>
+        <RadixCheckbox.Root
+          checked={checked}
+          className={s.checkbox}
+          disabled={disabled}
+          id={id}
+          onCheckedChange={onCheckedChange}
+          ref={ref}
+        >
+          <div className={s.frame}></div>
+          {checked && (
+            <RadixCheckbox.Indicator className={s.indicator} forceMount>
+              <Icon height={24} name={'checked'} width={24} />
+            </RadixCheckbox.Indicator>
+          )}
+        </RadixCheckbox.Root>
+        {label}
+      </Typography>
+    )
+  }
+)

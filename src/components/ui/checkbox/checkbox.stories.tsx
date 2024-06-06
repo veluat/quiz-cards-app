@@ -20,7 +20,7 @@ const CheckboxWithHooks = (args: CheckboxProps) => {
     setChecked(!checked)
   }
 
-  return <Checkbox {...args} checked={checked} onChange={onCheckedChange} />
+  return <Checkbox {...args} checked={checked} onCheckedChange={onCheckedChange} />
 }
 
 export const Default: Story = {
