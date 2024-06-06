@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { ElementRef, ReactNode, forwardRef } from 'react'
 
 import { Icon } from '@/components/ui/icon/icon'
 import * as Label from '@radix-ui/react-label'
@@ -26,56 +26,66 @@ export type SelectPropsType = {
   value?: string
 }
 
-export const Select: FC<SelectPropsType> = ({
-  className,
-  defaultValue,
-  disabled,
-  label,
-  onValueChange,
-  options,
-  placeholder,
-  required,
-  small,
-  value,
-}) => {
-  const classes = {
-    icon: clsx(s.icon, disabled && s.iconDisabled),
-    item: clsx(s.item, small && s.small),
-    label: clsx(s.label, disabled && s.labelDisabled),
-    root: clsx(s.root, disabled && s.labelDisabled, small && s.small, className),
-    trigger: clsx(s.trigger, disabled && s.triggerDisabled, small && s.small),
-  }
+export const Select = forwardRef<ElementRef<typeof RadixSelect.Root>, SelectPropsType>(
+  (
+    {
+      className,
+      defaultValue,
+      disabled,
+      label,
+      onValueChange,
+      options,
+      placeholder,
+      required,
+      small,
+      value,
+    },
+    ref
+  ) => {
+    const classes = {
+      icon: clsx(s.icon, disabled && s.iconDisabled),
+      item: clsx(s.item, small && s.small),
+      label: clsx(s.label, disabled && s.labelDisabled),
+      root: clsx(s.root, disabled && s.labelDisabled, small && s.small, className),
+      trigger: clsx(s.trigger, disabled && s.triggerDisabled, small && s.small),
+    }
 
-  return (
-    <Label.Root className={classes.root}>
-      <Typography as={'label'} className={classes.label} variant={'body2'}>
-        {label}
-      </Typography>
-      <RadixSelect.Root
-        defaultValue={defaultValue}
-        disabled={disabled}
-        onValueChange={onValueChange}
-        required={required}
-        value={value}
-      >
-        <RadixSelect.Trigger aria-label={'select'} asChild className={classes.trigger} tabIndex={1}>
-          <div>
-            <RadixSelect.Value placeholder={placeholder} />
-            <Icon className={classes.icon} name={'arrowDown'} />
-          </div>
-        </RadixSelect.Trigger>
-        <RadixSelect.Portal>
-          <RadixSelect.Content className={s.content} position={'popper'}>
-            <RadixSelect.Viewport>
-              {options.map(el => (
-                <RadixSelect.Item className={classes.item} key={el.value} value={el.value}>
-                  <RadixSelect.ItemText>{el.label}</RadixSelect.ItemText>
-                </RadixSelect.Item>
-              ))}
-            </RadixSelect.Viewport>
-          </RadixSelect.Content>
-        </RadixSelect.Portal>
-      </RadixSelect.Root>
-    </Label.Root>
-  )
-}
+    return (
+      <Label.Root className={classes.root} ref={ref}>
+        <Typography as={'label'} className={classes.label} variant={'body2'}>
+          {label}
+        </Typography>
+        <RadixSelect.Root
+          defaultValue={defaultValue}
+          disabled={disabled}
+          onValueChange={onValueChange}
+          required={required}
+          value={value}
+        >
+          <RadixSelect.Trigger
+            aria-label={'select'}
+            asChild
+            className={classes.trigger}
+            tabIndex={1}
+          >
+            <div>
+              <RadixSelect.Value placeholder={placeholder} />
+              <Icon className={classes.icon} name={'arrowDown'} />
+            </div>
+          </RadixSelect.Trigger>
+          <RadixSelect.Portal>
+            <RadixSelect.Content className={s.content} position={'popper'}>
+              <RadixSelect.Viewport>
+                {options.map(el => (
+                  <RadixSelect.Item className={classes.item} key={el.value} value={el.value}>
+                    <RadixSelect.ItemText>{el.label}</RadixSelect.ItemText>
+                  </RadixSelect.Item>
+                ))}
+              </RadixSelect.Viewport>
+            </RadixSelect.Content>
+          </RadixSelect.Portal>
+        </RadixSelect.Root>
+      </Label.Root>
+    )
+  }
+)
