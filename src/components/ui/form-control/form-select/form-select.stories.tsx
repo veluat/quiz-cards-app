@@ -10,7 +10,7 @@ import { FormSelect } from './form-select'
 
 const meta = {
   component: FormSelect,
-  title: 'Components/Form/Form Select',
+  title: 'Components/Form-Control/Form Select',
 } satisfies Meta<typeof FormSelect>
 
 export default meta

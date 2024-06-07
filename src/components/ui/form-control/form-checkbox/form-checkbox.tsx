@@ -11,32 +11,20 @@ export type FormCheckboxProps<T extends FieldValues> = Omit<
 export const FormCheckbox = <T extends FieldValues>({
   control,
   defaultValue,
-  disabled,
   name,
   rules,
   shouldUnregister,
   ...rest
 }: FormCheckboxProps<T>) => {
   const {
-    field: { onChange, ref, value },
+    field: { onChange, value },
   } = useController({
     control,
     defaultValue,
-    disabled,
     name,
     rules,
     shouldUnregister,
   })
 
-  return (
-    <Checkbox
-      {...{
-        checked: value,
-        id: name,
-        onChange,
-        ref,
-        ...rest,
-      }}
-    />
-  )
+  return <Checkbox checked={value} id={name} onCheckedChange={onChange} {...rest} />
 }

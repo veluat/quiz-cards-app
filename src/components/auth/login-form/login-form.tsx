@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 
-import { FormCheckbox } from '@/components/ui/form/form-checkbox/form-checkbox'
+import { FormCheckbox } from '@/components/ui/form-control/form-checkbox/form-checkbox'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
