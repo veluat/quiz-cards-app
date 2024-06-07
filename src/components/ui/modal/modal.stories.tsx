@@ -59,7 +59,7 @@ export const ExampleWithForm = {
             placeholder={'Input'}
             value={value2}
           />
-          <Checkbox checked={checked} label={'Check-box'} onChange={onCheckedChange} />
+          <Checkbox checked={checked} label={'Check-box'} onCheckedChange={onCheckedChange} />
         </Modal>
       </>
     )

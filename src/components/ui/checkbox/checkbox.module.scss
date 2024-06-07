@@ -1,10 +1,9 @@
 @import '@/styles/mixins';
 
 .label {
-  @include flex($gap: 12px);
+  @include flex($justify-content: flex-start, $gap: 12px);
 
   cursor: pointer;
-  width: max-content;
   padding: 9px 0;
 
   &.disabled {
