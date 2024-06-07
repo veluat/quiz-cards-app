@@ -14,9 +14,10 @@ export type TextFieldProps = {
   type?: 'password' | 'search' | 'text'
 } & ComponentPropsWithoutRef<'input'>
 
-type PropsType = Omit<ComponentPropsWithoutRef<'input'>, keyof TextFieldProps> & TextFieldProps
+type TextFieldPropsType = Omit<ComponentPropsWithoutRef<'input'>, keyof TextFieldProps> &
+  TextFieldProps
 
-export const TextField = forwardRef<HTMLInputElement, PropsType>(
+export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
   ({ className, clearField, errorMessage, label, placeholder, type = 'text', ...rest }, ref) => {
     const [showPassword, setShowPassword] = useState(false)
 
