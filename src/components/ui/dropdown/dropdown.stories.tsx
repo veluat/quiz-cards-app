@@ -66,7 +66,7 @@ export const WithProfile: Story = {
           </DropDownItem>
           <DropDownItemWithIcon
             icon={<Icon height={16} name={'user'} width={16} />}
-            text={'My profile'}
+            text={'My profile-page'}
           />
           <DropDownItemWithIcon
             icon={<Icon height={16} name={'logout'} width={16} />}
