@@ -6,11 +6,10 @@ import { Card } from '@/components/ui/card'
 import { FormCheckbox } from '@/components/ui/form-control/form-checkbox/form-checkbox'
 import { FormTextField } from '@/components/ui/form-control/form-text-field'
 import { Typography } from '@/components/ui/typography'
+import { LoginFormProps, useLoginForm } from '@/features'
 import { DevTool } from '@hookform/devtools'
 
 import s from './login-form.module.scss'
-
-import { LoginFormProps, useLoginForm } from './use-login-form'
 
 type Props = {
   className?: string
