@@ -1,0 +1,7 @@
+@import '@/styles/mixins';
+
+.root {
+  @include container(117rem);
+
+  padding: 3.6rem 1.5rem 0;
+}
