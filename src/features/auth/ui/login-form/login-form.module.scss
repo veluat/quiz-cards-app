@@ -1,0 +1,54 @@
+@import '@/styles/mixins';
+
+.formWrapper {
+  @include flex($flex-direction: column, $justify-content: flex-start);
+
+  @include container(42rem);
+
+  padding: 3.3rem 3.6rem 2.9rem;
+
+  .formHeader {
+    margin-bottom: 2.7rem;
+  }
+
+  .form {
+    @include flex($flex-direction: column, $justify-content: flex-start, $align-items: flex-start);
+
+    width: 100%;
+
+    .email,
+    .password {
+      margin: 2.4rem 0 1.2rem;
+    }
+
+    .checkbox {
+      max-width: 12.5rem;
+    }
+
+    .forgotPasswordLink {
+      margin: 0.6rem 0.9rem 6.6rem 0;
+      text-align: right;
+    }
+  }
+
+  .infoText {
+    margin: 2rem 0 1.1rem;
+    color: var(--color-light-900);
+  }
+
+  .signUp {
+    position: relative;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      bottom: 0.6rem;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: var(--color-primary-500);
+    }
+  }
+}

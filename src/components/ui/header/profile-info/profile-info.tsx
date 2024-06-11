@@ -2,7 +2,7 @@ import { ElementRef, forwardRef } from 'react'
 
 import { Avatar } from '@/components/ui/avatar'
 import { Typography } from '@/components/ui/typography'
-import { ProfileResponse } from '@/features/auth/model/types'
+import { ProfileResponse } from '@/features/auth/api/types'
 
 import s from './profile-info.module.scss'
 
