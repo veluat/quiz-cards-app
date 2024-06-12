@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
 import { Icon } from '@/components/ui/icon/icon'
 import { Typography } from '@/components/ui/typography'
@@ -10,6 +10,7 @@ export type TextFieldProps = {
   clearField?: () => void
   errorMessage?: string
   label?: string
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
   type?: 'password' | 'search' | 'text'
 } & ComponentPropsWithoutRef<'input'>

@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button'
@@ -29,7 +29,8 @@ export const ExampleWithForm: Story = {
     const onSubmit = (data: FormValues) => {
       alert(JSON.stringify(data))
     }
-
+    const [state1, setState1] = useState('')
+    const [state2, setState2] = useState('')
     const styles: CSSProperties = {
       display: 'flex',
       flexDirection: 'column',
@@ -41,8 +42,22 @@ export const ExampleWithForm: Story = {
       <form onSubmit={handleSubmit(onSubmit)} style={styles}>
         <DevTool control={control} />
         <Typography>Form With Controlled Text Fields</Typography>
-        <FormTextField control={control} label={'First Name'} name={'firstName'} />
-        <FormTextField control={control} label={'Last Name'} name={'lastName'} />
+        <FormTextField
+          clearField={() => setState1('')}
+          control={control}
+          label={'First Name'}
+          name={'firstName'}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setState1(e.currentTarget.value)}
+          value={state1}
+        />
+        <FormTextField
+          clearField={() => setState2('')}
+          control={control}
+          label={'Last Name'}
+          name={'lastName'}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setState2(e.currentTarget.value)}
+          value={state2}
+        />
         <Button fullWidth type={'submit'}>
           Send
         </Button>
