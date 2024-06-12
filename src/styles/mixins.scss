@@ -125,3 +125,21 @@
     @include common-animation-control(0);
   }
 }
+
+@mixin link-form {
+  position: relative;
+  margin-top: 7px;
+  padding: 0;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    bottom: 5px;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: var(--color-primary-500);
+  }
+}
