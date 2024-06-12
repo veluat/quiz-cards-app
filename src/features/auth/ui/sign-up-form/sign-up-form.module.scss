@@ -1,0 +1,23 @@
+@import '@/styles/mixins';
+
+.form {
+  @include form-body;
+
+  .email,
+  .password,
+  .passwordConfirm {
+    margin-top: 27px;
+  }
+
+  .signUp {
+    margin-top: 60px;
+  }
+}
+
+.infoText {
+  @include form-bottom;
+}
+
+.signIn {
+  @include link-form;
+}
