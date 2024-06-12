@@ -143,3 +143,14 @@
     background-color: var(--color-primary-500);
   }
 }
+
+@mixin form-body {
+  @include flex($flex-direction: column, $justify-content: flex-start, $align-items: flex-start);
+
+  width: 100%;
+}
+
+@mixin form-bottom {
+  margin-top: 20px;
+  color: var(--color-light-900);
+}

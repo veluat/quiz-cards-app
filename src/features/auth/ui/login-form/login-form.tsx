@@ -20,8 +20,8 @@ export const LoginForm = ({ onSubmit }: Props) => {
   const { control, handleSubmit } = useLoginForm()
 
   return (
-    <Card className={s.formWrapper}>
-      <Typography as={'h2'} className={s.formHeader} variant={'h1'}>
+    <Card>
+      <Typography as={'h2'} variant={'h1'}>
         Sign In
       </Typography>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
