@@ -1,22 +1,22 @@
-import { PropsWithChildren, useState } from 'react'
+import { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { FormTextField } from '@/components/ui/form-control/form-text-field'
 import { Typography } from '@/components/ui/typography'
+import { RecoverPasswordFormProps, useRecoverPasswordForm } from '@/features'
 import { DevTool } from '@hookform/devtools'
 
-import s from './forgot-password-form.module.scss'
+import s from './recover-password-form.module.scss'
 
-import { ForgotPasswordFormProps, useForgotPasswordForm } from './use-forgot-password-form'
 type Props = {
   className?: string
-  onSubmit: (data: ForgotPasswordFormProps) => void
+  onSubmit: (data: RecoverPasswordFormProps) => void
 } & PropsWithChildren
 
-export const ForgotPasswordForm = ({ onSubmit }: Props) => {
-  const { control, handleSubmit } = useForgotPasswordForm()
+export const RecoverPasswordForm = ({ onSubmit }: Props) => {
+  const { control, handleSubmit } = useRecoverPasswordForm()
 
   return (
     <Card>

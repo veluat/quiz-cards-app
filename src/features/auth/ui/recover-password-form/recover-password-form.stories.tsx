@@ -1,12 +1,12 @@
 import { MemoryRouter } from 'react-router-dom'
 
-import { ForgotPasswordForm } from '@/features'
+import { RecoverPasswordForm } from '@/features'
 import { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<typeof ForgotPasswordForm> = {
-  component: ForgotPasswordForm,
+const meta: Meta<typeof RecoverPasswordForm> = {
+  component: RecoverPasswordForm,
   tags: ['autodocs'],
-  title: 'Auth/ForgotPasswordForm',
+  title: 'Auth/Recover Password Form',
 }
 
 export default meta
