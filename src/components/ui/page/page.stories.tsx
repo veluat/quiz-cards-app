@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { MemoryRouter } from 'react-router-dom'
 
-import { LoginForm } from '@/features'
+import { SignInForm } from '@/features'
 import { action } from '@storybook/addon-actions'
 
 import { Page } from './page'
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: <LoginForm onSubmit={data => action('SignIn data')(data)} />,
+    children: <SignInForm onSubmit={data => action('SignIn data')(data)} />,
   },
   decorators: [story => <MemoryRouter>{story()}</MemoryRouter>],
 }
