@@ -1,12 +1,12 @@
 import { MemoryRouter } from 'react-router-dom'
 
-import { LoginForm } from '@/features'
+import { SignInForm } from '@/features'
 import { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<typeof LoginForm> = {
-  component: LoginForm,
+const meta: Meta<typeof SignInForm> = {
+  component: SignInForm,
   tags: ['autodocs'],
-  title: 'Auth/LoginForm',
+  title: 'Auth/Sign In Form',
 }
 
 export default meta

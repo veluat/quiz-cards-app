@@ -1,15 +1,15 @@
 import { Page } from '@/components/ui/page'
 import { LoginArgs } from '@/features/auth/api/types'
-import { LoginForm } from '@/features/auth/ui/login-form'
+import { SignInForm } from '@/features/auth/ui/sign-in-form'
 
-export const LoginPage = () => {
+export const SignInPage = () => {
   const loginHandler = (loginData: LoginArgs) => {
     alert(loginData)
   }
 
   return (
     <Page>
-      <LoginForm onSubmit={loginHandler} />
+      <SignInForm onSubmit={loginHandler} />
     </Page>
   )
 }

@@ -6,18 +6,18 @@ import { Card } from '@/components/ui/card'
 import { FormCheckbox } from '@/components/ui/form-control/form-checkbox/form-checkbox'
 import { FormTextField } from '@/components/ui/form-control/form-text-field'
 import { Typography } from '@/components/ui/typography'
-import { LoginFormProps, useLoginForm } from '@/features'
+import { SignInFormProps, useSignInForm } from '@/features'
 import { DevTool } from '@hookform/devtools'
 
-import s from './login-form.module.scss'
+import s from './sign-in-form.module.scss'
 
 type Props = {
   className?: string
-  onSubmit: (data: LoginFormProps) => void
+  onSubmit: (data: SignInFormProps) => void
 } & PropsWithChildren
 
-export const LoginForm = ({ onSubmit }: Props) => {
-  const { control, handleSubmit } = useLoginForm()
+export const SignInForm = ({ onSubmit }: Props) => {
+  const { control, handleSubmit } = useSignInForm()
 
   return (
     <Card>
@@ -49,7 +49,7 @@ export const LoginForm = ({ onSubmit }: Props) => {
         />
         <Typography
           as={Link}
-          className={s.forgotPasswordLink}
+          className={s.recoverPasswordLink}
           to={'/recover-password'}
           variant={'body2'}
         >
