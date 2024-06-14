@@ -4,7 +4,7 @@
   @include container(420px);
   @include flex($flex-direction: column, $justify-content: flex-start);
 
-  padding: 33px 36px 25px;
+  padding: 33px 36px 25px 27px;
   background-color: var(--color-dark-700);
   border: 1px solid rgb(49 49 49 / 10%);
   box-shadow:

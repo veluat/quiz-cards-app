@@ -59,7 +59,7 @@ export const SignInForm = ({ onSubmit }: Props) => {
           Sign In
         </Button>
       </form>
-      <Typography className={s.infoText} variant={'body2'}>
+      <Typography className={s.promptText} variant={'body2'}>
         {`Don't have an account?`}
       </Typography>
       <Button as={Link} className={s.signUp} to={'/sign-up-page'} variant={'link'}>

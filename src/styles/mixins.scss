@@ -154,3 +154,8 @@
   margin-top: 20px;
   color: var(--color-light-900);
 }
+
+@mixin notification {
+  color: var(--color-light-900);
+  opacity: 0.5;
+}

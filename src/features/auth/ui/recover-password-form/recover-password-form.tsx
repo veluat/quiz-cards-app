@@ -19,21 +19,21 @@ export const RecoverPasswordForm = ({ onSubmit }: Props) => {
   const { control, handleSubmit } = useRecoverPasswordForm()
 
   return (
-    <Card>
+    <Card className={s.cardAddition}>
       <Typography as={'h2'} variant={'h1'}>
         Forgot your password?
       </Typography>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <DevTool control={control} />
         <FormTextField className={s.email} control={control} label={'Email'} name={'email'} />
-        <Typography className={s.information} variant={'body2'}>
+        <Typography className={s.notification} variant={'body2'}>
           Enter your email address and we will send you further instructions
         </Typography>
         <Button className={s.signUp} fullWidth type={'submit'}>
           Send Instructions
         </Button>
       </form>
-      <Typography className={s.infoText} variant={'body2'}>
+      <Typography className={s.promptText} variant={'body2'}>
         Did you remember your password?
       </Typography>
       <Button as={Link} className={s.loggingIn} to={'/sign-up-page'} variant={'link'}>

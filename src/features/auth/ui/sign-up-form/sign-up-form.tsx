@@ -20,7 +20,7 @@ export const SignUpForm = ({ onSubmit }: Props) => {
   const { control, handleSubmit } = useSignUpForm()
 
   return (
-    <Card>
+    <Card className={s.cardAddition}>
       <Typography as={'h2'} variant={'h1'}>
         Sign Up
       </Typography>
@@ -45,7 +45,7 @@ export const SignUpForm = ({ onSubmit }: Props) => {
           Sign Up
         </Button>
       </form>
-      <Typography className={s.infoText} variant={'body2'}>
+      <Typography className={s.promptText} variant={'body2'}>
         Already have an account?
       </Typography>
       <Button as={Link} className={s.signIn} to={'/sign-up-page'} variant={'link'}>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Logo from '@/assets/illustrations/logo'
+import Logo from '@/assets/images/logo-image'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { DropDown, DropDownItem, DropDownItemWithIcon } from '@/components/ui/dropdown'
