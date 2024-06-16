@@ -1,0 +1,37 @@
+@import '@/styles/mixins';
+
+.root {
+  @include flex($flex-direction: column);
+
+  .userNameWrapper {
+    @include flex($gap: 9px);
+
+    .editNickname {
+      all: unset;
+
+      @include flex;
+
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      padding: 0;
+
+      background-color: transparent;
+      border-radius: 4px;
+
+      &:focus {
+        outline: 2px solid var(--color-info-700);
+      }
+
+      .icon {
+        cursor: pointer;
+        fill: #fff;
+      }
+    }
+  }
+
+  .email {
+    margin: 10px 0 13px;
+    color: var(--color-dark-100);
+  }
+}
