@@ -1,0 +1,22 @@
+@import '@/styles/mixins';
+
+.avatarContainer {
+  position: relative;
+}
+
+.editImage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  @include flex;
+
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+}
+
+.avatar {
+  margin-bottom: 6px;
+  object-fit: cover;
+}
