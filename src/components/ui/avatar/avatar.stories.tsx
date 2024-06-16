@@ -37,6 +37,6 @@ export const LargeWithImage: Story = {
   args: {
     image: 'https://lastfm.freetls.fastly.net/i/u/avatar170s/1a31ec80fdd1668f41682c4617620d3d',
     size: 'large',
-    userName: 'John Doe',
+    userName: 'Jon Krieger',
   },
 }
