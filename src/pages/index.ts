@@ -1,0 +1,5 @@
+export * from './create-new-password-page'
+export * from './profile-page'
+export * from './recover-password-page'
+export * from './sign-in-page'
+export * from './sign-up-page'
