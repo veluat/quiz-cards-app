@@ -5,9 +5,9 @@ import { clsx } from 'clsx'
 import s from './table.module.scss'
 
 const Root: FC<ComponentPropsWithoutRef<'table'>> = ({ className, ...rest }) => {
-  const classes = clsx(s.root, className)
+  const styles = clsx(s.root, className)
 
-  return <table className={classes} {...rest} />
+  return <table className={styles} {...rest} />
 }
 
 const Head: FC<ComponentPropsWithoutRef<'thead'>> = ({ className, ...rest }) => {

@@ -23,12 +23,12 @@ export type RadioGroupProps = {
 
 export const RadioGroup = forwardRef<ElementRef<typeof RadixSelect.Root>, RadioGroupProps>(
   ({ errorMessage, options, ...rest }, ref) => {
-    const labelClasses = clsx(s.item, rest.disabled && s.disabled)
+    const styles = clsx(s.item, rest.disabled && s.disabled)
 
     return (
       <RadioGr.Root aria-label={'Aria label'} ref={ref} {...rest} className={s.root}>
         {options.map(el => (
-          <Typography as={'label'} className={labelClasses} key={el.value} variant={'body2'}>
+          <Typography as={'label'} className={styles} key={el.value} variant={'body2'}>
             <RadioGr.Item className={s.radio} value={el.value}>
               <div className={s.frame}></div>
               <RadioGr.Indicator className={s.indicator} />

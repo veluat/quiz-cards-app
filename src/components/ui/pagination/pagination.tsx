@@ -28,7 +28,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   siblingCount,
   totalCount = 10,
 }) => {
-  const classes = clsx(s.root, className)
+  const styles = clsx(s.root, className)
 
   const paginationRange = usePagination({
     currentPage,
@@ -42,7 +42,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <div className={classes}>
+    <div className={styles}>
       <NavigationBlock
         currentPage={currentPage}
         onPageChange={onPageChange}

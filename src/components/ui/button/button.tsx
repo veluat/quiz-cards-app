@@ -30,10 +30,10 @@ export const Button = <T extends ElementType = 'button'>(
     width = 16,
     ...rest
   } = props
-  const classNames = clsx(s[variant], fullWidth && s.fullWidth, className)
+  const styles = clsx(s[variant], fullWidth && s.fullWidth, className)
 
   return (
-    <Component className={classNames} {...rest}>
+    <Component className={styles} {...rest}>
       {icon && <Icon height={height} name={icon} width={width} />}
       <Typography as={'span'} variant={'subtitle2'}>
         {children}

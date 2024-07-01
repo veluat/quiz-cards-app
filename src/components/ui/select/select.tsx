@@ -42,7 +42,7 @@ export const Select = forwardRef<ElementRef<typeof RadixSelect.Root>, SelectProp
     },
     ref
   ) => {
-    const classes = {
+    const styles = {
       icon: clsx(s.icon, disabled && s.iconDisabled),
       item: clsx(s.item, small && s.small),
       label: clsx(s.label, disabled && s.labelDisabled),
@@ -51,8 +51,8 @@ export const Select = forwardRef<ElementRef<typeof RadixSelect.Root>, SelectProp
     }
 
     return (
-      <Label.Root className={classes.root} ref={ref}>
-        <Typography as={'label'} className={classes.label} variant={'body2'}>
+      <Label.Root className={styles.root} ref={ref}>
+        <Typography as={'label'} className={styles.label} variant={'body2'}>
           {label}
         </Typography>
         <RadixSelect.Root
@@ -65,19 +65,19 @@ export const Select = forwardRef<ElementRef<typeof RadixSelect.Root>, SelectProp
           <RadixSelect.Trigger
             aria-label={'select'}
             asChild
-            className={classes.trigger}
+            className={styles.trigger}
             tabIndex={1}
           >
             <div>
               <RadixSelect.Value placeholder={placeholder} />
-              <Icon className={classes.icon} name={'arrowDown'} />
+              <Icon className={styles.icon} name={'arrowDown'} />
             </div>
           </RadixSelect.Trigger>
           <RadixSelect.Portal>
             <RadixSelect.Content className={s.content} position={'popper'}>
               <RadixSelect.Viewport>
                 {options.map(el => (
-                  <RadixSelect.Item className={classes.item} key={el.value} value={el.value}>
+                  <RadixSelect.Item className={styles.item} key={el.value} value={el.value}>
                     <RadixSelect.ItemText>{el.label}</RadixSelect.ItemText>
                   </RadixSelect.Item>
                 ))}

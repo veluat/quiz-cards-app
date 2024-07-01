@@ -9,10 +9,10 @@ type Props = {
 } & ComponentPropsWithoutRef<'button'>
 
 export const NavigateButton: React.FC<Props> = ({ active, children, className, ...rest }) => {
-  const classes = clsx(s.button, active && s.active, className)
+  const styles = clsx(s.button, active && s.active, className)
 
   return (
-    <button {...rest} className={classes}>
+    <button {...rest} className={styles}>
       {children}
     </button>
   )

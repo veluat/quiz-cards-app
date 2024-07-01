@@ -79,7 +79,7 @@ export const Uploader = <T extends ElementType = 'button'>(
     event.preventDefault()
   }
 
-  const classes = {
+  const styles = {
     drag: clsx(s.drag, className),
     wrapper: clsx(s.wrapper, className),
   }
@@ -88,7 +88,7 @@ export const Uploader = <T extends ElementType = 'button'>(
     return (
       <>
         <WrapperComponent
-          className={classes.wrapper}
+          className={styles.wrapper}
           onClick={() => inputRef?.current?.click()}
           {...asProps}
           {...rest}
@@ -108,7 +108,7 @@ export const Uploader = <T extends ElementType = 'button'>(
 
   if (mode === 'drag') {
     return (
-      <div className={classes.drag} onDragOver={handleDragOver} onDrop={handleDrop}>
+      <div className={styles.drag} onDragOver={handleDragOver} onDrop={handleDrop}>
         <p>Перетащите сюда файл</p>
       </div>
     )

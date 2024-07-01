@@ -6,8 +6,8 @@ import s from './page.module.scss'
 
 export const Page = forwardRef<ElementRef<'div'>, ComponentPropsWithoutRef<'div'>>(
   ({ className, ...restProps }, ref) => {
-    const pageClasses = clsx(s.root, className)
+    const styles = clsx(s.root, className)
 
-    return <div className={pageClasses} ref={ref} {...restProps} />
+    return <div className={styles} ref={ref} {...restProps} />
   }
 )

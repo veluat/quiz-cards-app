@@ -18,7 +18,7 @@ export const Avatar: FC<AvatarProps> = ({
   userName,
   ...rest
 }) => {
-  const classNames = {
+  const styles = {
     fallback: clsx(s.fallback, size === 'large' && s.font),
     image: s.image,
     root: clsx(s.root, s[size], className),
@@ -30,9 +30,9 @@ export const Avatar: FC<AvatarProps> = ({
     .join(' ')
 
   return (
-    <AvatarRadix.Root className={classNames.root} {...rest}>
-      <AvatarRadix.Image alt={`${userName} Avatar`} className={classNames.image} src={image} />
-      <AvatarRadix.Fallback className={classNames.fallback}>{initials}</AvatarRadix.Fallback>
+    <AvatarRadix.Root className={styles.root} {...rest}>
+      <AvatarRadix.Image alt={`${userName} Avatar`} className={styles.image} src={image} />
+      <AvatarRadix.Fallback className={styles.fallback}>{initials}</AvatarRadix.Fallback>
     </AvatarRadix.Root>
   )
 }

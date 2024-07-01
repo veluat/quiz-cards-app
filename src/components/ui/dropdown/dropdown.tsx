@@ -17,7 +17,7 @@ type DropDownProps = {
 
 export const DropDown: FC<DropDownProps> = ({ align = 'end', children, className, trigger }) => {
   const [open, setOpen] = useState(false)
-  const classNames = {
+  const styles = {
     btn: s.btn,
     content: clsx(s.content, className),
     trigger: s.trigger,
@@ -25,9 +25,9 @@ export const DropDown: FC<DropDownProps> = ({ align = 'end', children, className
 
   return (
     <DropdownMenu.Root modal onOpenChange={setOpen} open={open}>
-      <DropdownMenu.Trigger asChild className={classNames.trigger}>
+      <DropdownMenu.Trigger asChild className={styles.trigger}>
         {trigger ?? (
-          <button className={classNames.btn}>
+          <button className={styles.btn}>
             <Icon name={'more'} />
           </button>
         )}
@@ -38,7 +38,7 @@ export const DropDown: FC<DropDownProps> = ({ align = 'end', children, className
             <DropdownMenu.Content
               align={align}
               asChild
-              className={classNames.content}
+              className={styles.content}
               forceMount
               onClick={e => e.stopPropagation()}
             >

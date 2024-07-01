@@ -15,11 +15,12 @@ export type CheckboxProps = {
   label?: string
   onCheckedChange?: (checked: boolean) => void
 }
-
 export const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, CheckboxProps>(
   ({ checked, className, disabled, id, label, onCheckedChange }, ref) => {
+    const styles = clsx(s.label, disabled && s.disabled, className)
+
     return (
-      <Typography as={'label'} className={clsx(s.label, disabled && s.disabled, className)}>
+      <Typography as={'label'} className={styles}>
         <RadixCheckbox.Root
           checked={checked}
           className={s.checkbox}
