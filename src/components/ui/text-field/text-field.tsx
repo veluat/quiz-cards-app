@@ -31,6 +31,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
 
     const passwordHandler = () => setShowPassword(prev => !prev)
 
+    const iconToRender = getIcon(isPasswordType, showPassword)
+
     const styles = {
       input: clsx(
         s.input,
@@ -62,7 +64,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
                 onClick={passwordHandler}
                 type={'button'}
               >
-                {showPassword ? <Icon name={'eyeOff'} /> : <Icon name={'eye'} />}
+                {iconToRender}
               </button>
             )}
             {isSearchType && (
@@ -96,4 +98,15 @@ function getFinalType(type: TextFieldProps['type'], showPassword: boolean) {
   }
 
   return 'text'
+}
+
+function getIcon(isPasswordType: boolean, showPassword: boolean) {
+  if (!isPasswordType) {
+    return null
+  }
+  if (showPassword) {
+    return <Icon name={'eyeOff'} />
+  }
+
+  return <Icon name={'eye'} />
 }
