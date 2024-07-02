@@ -9,7 +9,7 @@ import { DevTool } from '@hookform/devtools'
 
 import s from './sign-up-form.module.scss'
 
-import { SignUpFormProps, useSignUpForm } from './use-sign-up-form'
+import { SignUpFormProps, useSignUpForm } from '@/features'
 
 type Props = {
   className?: string
