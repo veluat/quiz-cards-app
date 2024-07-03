@@ -59,7 +59,7 @@
     }
 
     &:hover,
-    &:focus-visible,
+    &:focus,
     &[data-state='checked'] {
       color: var(--color-primary-300);
       background-color: var(--color-primary-900);
