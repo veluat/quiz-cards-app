@@ -44,7 +44,9 @@ export const ExampleWithForm = {
         <div style={{ margin: '30px 0' }}>
           <FormSelect control={control} label={'Select:'} name={'number'} options={formOptions} />
         </div>
-        <Button fullWidth>Send</Button>
+        <Button fullWidth type={'submit'}>
+          Send
+        </Button>
       </form>
     )
   },
