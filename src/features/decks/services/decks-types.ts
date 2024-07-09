@@ -1,17 +1,17 @@
-export interface DecksListResponse {
+export type GetDecksResponse = {
   items: Deck[]
   maxCardsCount: number
   pagination: Pagination
 }
 
-export interface Pagination {
+export type Pagination = {
   currentPage: number
   deckPerPage: number
   totalDecks: number
   totalPages: number
 }
 
-export interface Deck {
+export type Deck = {
   author: Author
   cardsCount: number
   cover?: string
@@ -23,12 +23,12 @@ export interface Deck {
   userId: string
 }
 
-export interface Author {
+export type Author = {
   id: string
   name: string
 }
 
-export interface GetDecksArgs {
+export type GetDecksArgs = {
   authorId?: string
   currentPage?: number
   itemsPerPage?: number
