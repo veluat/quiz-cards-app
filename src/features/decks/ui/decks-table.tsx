@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { decksTableColumns } from '@/common/consts'
+import { TableHeader } from '@/components/table-header'
 import { Table } from '@/components/ui/table'
 import { Deck } from '@/features/decks/services'
 
@@ -13,29 +15,22 @@ export const DecksTable: React.FC<Props> = ({ items }) => {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Cards</th>
-          <th>Last Updated</th>
-          <th>Created By</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table.Root>
+      <TableHeader columns={decksTableColumns} />
+      <Table.Body>
         {items?.map(deck => {
           const updatedAt = new Date(deck.updated).toLocaleDateString('ru-RU')
 
           return (
-            <tr key={deck.id}>
-              <td>{deck.name}</td>
-              <td>{deck.cardsCount}</td>
-              <td>{updatedAt}</td>
-              <td>{deck.author.name}</td>
-            </tr>
+            <Table.Row key={deck.id}>
+              <Table.Cell>{deck.name}</Table.Cell>
+              <Table.Cell>{deck.cardsCount}</Table.Cell>
+              <Table.Cell>{updatedAt}</Table.Cell>
+              <Table.Cell>{deck.author.name}</Table.Cell>
+            </Table.Row>
           )
         })}
-      </tbody>
-    </table>
+      </Table.Body>
+    </Table.Root>
   )
 }
