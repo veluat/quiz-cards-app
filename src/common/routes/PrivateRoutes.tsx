@@ -1,9 +1,7 @@
-import { Navigate } from 'react-router-dom'
-
-import { DecksPage } from '@/pages/decks-page'
+import { Navigate, Outlet } from 'react-router-dom'
 
 export function PrivateRoutes() {
   const isAuthenticated = true
 
-  return isAuthenticated ? <DecksPage /> : <Navigate to={'/login'} />
+  return isAuthenticated ? <Outlet /> : <Navigate to={'/login'} />
 }
