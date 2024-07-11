@@ -37,3 +37,7 @@ export type GetDecksArgs = {
   name?: string
   orderBy?: string
 }
+
+export type GetDeckByIdArgs = {
+  id: string
+}
