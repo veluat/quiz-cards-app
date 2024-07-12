@@ -1,4 +1,5 @@
 import {
+  CreateDeckArgs,
   GetDeckByIdArgs,
   GetDecksArgs,
   GetDecksResponse,
@@ -15,6 +16,13 @@ export const baseApi = createApi({
   }),
   endpoints: builder => {
     return {
+      createDeck: builder.mutation<CreateDeckArgs, FormData>({
+        query: args => ({
+          body: args,
+          method: 'POST',
+          url: `v1/decks`,
+        }),
+      }),
       getDeckById: builder.query<GetDecksResponse, GetDeckByIdArgs>({
         query: ({ id }) => ({
           method: 'GET',
