@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
-import { useGetDecksQuery } from '@/common/services/base-api'
+import { useCreateDeckMutation, useGetDecksQuery } from '@/common/services/base-api'
+import { Button } from '@/components/ui/button'
 import { Loader } from '@/components/ui/loader/loader'
 import { TextField } from '@/components/ui/text-field'
 import { DecksTable } from '@/features/decks/ui/decks-table'
@@ -10,6 +11,7 @@ export function DecksPage() {
   const { data, error, isLoading } = useGetDecksQuery({
     name: search,
   })
+  const [createDeck] = useCreateDeckMutation()
 
   if (isLoading) {
     return <Loader />
@@ -21,6 +23,13 @@ export function DecksPage() {
 
   return (
     <div>
+      <Button
+        disabled={isLoading}
+        onClick={() => createDeck({ name: 'New Deck' })}
+        variant={'primary'}
+      >
+        Create Deck
+      </Button>
       <TextField onChange={e => setSearch(e.currentTarget.value)} value={search} />
       <DecksTable items={data?.items} />
     </div>
