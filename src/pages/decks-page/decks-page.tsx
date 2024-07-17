@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import { useCreateDeckMutation, useGetDecksQuery } from '@/common/services/base-api'
 import { Button } from '@/components/ui/button'
 import { Loader } from '@/components/ui/loader/loader'
 import { TextField } from '@/components/ui/text-field'
+import { useCreateDeckMutation, useGetDecksQuery } from '@/features/decks/services'
 import { DecksTable } from '@/features/decks/ui/decks-table'
 
 export function DecksPage() {
