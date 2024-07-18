@@ -5,11 +5,10 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { FormTextField } from '@/components/ui/form-control/form-text-field'
 import { Typography } from '@/components/ui/typography'
+import { SignUpFormProps, useSignUpForm } from '@/features'
 import { DevTool } from '@hookform/devtools'
 
 import s from './sign-up-form.module.scss'
-
-import { SignUpFormProps, useSignUpForm } from '@/features'
 
 type Props = {
   className?: string
@@ -48,7 +47,7 @@ export const SignUpForm = ({ onSubmit }: Props) => {
       <Typography className={s.promptText} variant={'body2'}>
         Already have an account?
       </Typography>
-      <Button as={Link} className={s.signIn} to={'/sign-up-page'} variant={'link'}>
+      <Button as={Link} className={s.signIn} to={'/sign-up'} variant={'link'}>
         Sign In
       </Button>
     </Card>

@@ -36,7 +36,7 @@ export const RecoverPasswordForm = ({ onSubmit }: Props) => {
       <Typography className={s.promptText} variant={'body2'}>
         Did you remember your password?
       </Typography>
-      <Button as={Link} className={s.loggingIn} to={'/sign-up-page'} variant={'link'}>
+      <Button as={Link} className={s.loggingIn} to={'/sign-up'} variant={'link'}>
         Try logging in
       </Button>
     </Card>
