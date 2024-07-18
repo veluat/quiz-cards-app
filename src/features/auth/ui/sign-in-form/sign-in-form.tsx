@@ -62,7 +62,7 @@ export const SignInForm = ({ onSubmit }: Props) => {
       <Typography className={s.promptText} variant={'body2'}>
         {`Don't have an account?`}
       </Typography>
-      <Button as={Link} className={s.signUp} to={'/sign-up-page'} variant={'link'}>
+      <Button as={Link} className={s.signUp} to={'/sign-up'} variant={'link'}>
         Sign Up
       </Button>
     </Card>
