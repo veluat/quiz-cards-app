@@ -1,6 +1,5 @@
+import { QueryLoader } from '@/features/loading'
 import { Meta, StoryObj } from '@storybook/react'
-
-import { QueryLoader } from '../.'
 
 const meta = {
   component: QueryLoader,
