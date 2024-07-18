@@ -1,10 +1,11 @@
-import { Loader } from '@/components/ui/loader/loader'
 import { Meta, StoryObj } from '@storybook/react'
 
+import { QueryLoader } from '../.'
+
 const meta = {
-  component: Loader,
-  title: 'Components/Loader',
-} satisfies Meta<typeof Loader>
+  component: QueryLoader,
+  title: 'Components/Query Loading',
+} satisfies Meta<typeof QueryLoader>
 
 export default meta
 

@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { Loader } from '@/components/ui/loader/loader'
 import { TextField } from '@/components/ui/text-field'
 import { useCreateDeckMutation, useGetDecksQuery } from '@/features/decks/services'
 import { DecksTable } from '@/features/decks/ui/decks-table'
+import { QueryLoader } from '@/features/loading/ui/query-loader/query-loader'
 
 export function DecksPage() {
   const [search, setSearch] = useState('')
@@ -14,7 +14,7 @@ export function DecksPage() {
   const [createDeck] = useCreateDeckMutation()
 
   if (isLoading) {
-    return <Loader />
+    return <QueryLoader />
   }
 
   if (error) {
