@@ -25,7 +25,7 @@ ___
 - react
   - react-dom
   - react-hook-form
-  - react-router-dom
+  - react-routes-dom
   - react-toastify
   - react-redux
 - redux-toolkit

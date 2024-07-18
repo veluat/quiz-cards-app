@@ -19,3 +19,10 @@ export type ProfileResponse = {
 }
 
 export type UpdateProfileFormData = FormData
+
+export type SignUpArgs = Omit<LoginArgs, 'rememberMe'>
+
+export type RecoverPasswordRequest = {
+  email: string
+  html: string
+}

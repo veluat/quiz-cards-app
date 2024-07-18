@@ -1,10 +1,10 @@
-import { baseApi } from '@/common/services/base-api'
 import {
   CreateDeckArgs,
   GetDeckByIdArgs,
   GetDecksArgs,
   GetDecksResponse,
 } from '@/features/decks/services/decks-types'
+import { baseApi } from '@/services/base-api'
 
 export const decksService = baseApi.injectEndpoints({
   endpoints: builder => {

@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux'
 
-import { Router } from '@/common/routes/router'
-import { store } from '@/common/services/store'
+import { Router } from '@/app/providers/routes'
+import { store } from '@/app/providers/store/store'
 
 export function App() {
   return (
