@@ -10,9 +10,9 @@ In this application you can create a set of cards on absolutely any topic and us
 
 :key: Register or use the test account:
 
-login: test.account.cards@gmail.com
+login: temp.access.quiz.cards@gmail.com
 
-password: 1234
+password: free-pass
 ___
 | **Category**        | **Technology**         |
 |---------------------|------------------------|
