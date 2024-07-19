@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { Table } from '@/components/ui/table'
 
-import { Sort, TableHeader } from './'
+import { Sort, TableHeader } from './index'
 
 const meta = {
   component: Table.Root,

@@ -1,8 +1,8 @@
 import { CSSProperties } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { FormRadioGroup } from '@/components/form-control/form-radio-group/form-radio-group'
 import { Button } from '@/components/ui/button'
-import { FormRadioGroup } from '@/components/ui/form-control/form-radio-group/form-radio-group'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 import { Meta } from '@storybook/react'
