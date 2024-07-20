@@ -25,10 +25,10 @@ export const Text = {
 
     return (
       <TextField
-        clearField={() => setState('')}
         label={'Email text field'}
         name={'email'}
         onChange={e => setState(e.currentTarget.value)}
+        onClearClick={() => setState('')}
         placeholder={'Placeholder'}
         value={state}
       />
@@ -42,9 +42,9 @@ export const Password = {
 
     return (
       <TextField
-        clearField={() => setState('')}
         label={'Password text field'}
         onChange={e => setState(e.currentTarget.value)}
+        onClearClick={() => setState('')}
         placeholder={'Placeholder'}
         type={'password'}
         value={state}
@@ -59,9 +59,9 @@ export const Search = {
 
     return (
       <TextField
-        clearField={() => setState('')}
         label={'Search text field'}
         onChange={e => setState(e.currentTarget.value)}
+        onClearClick={() => setState('')}
         placeholder={'Placeholder'}
         type={'search'}
         value={state}

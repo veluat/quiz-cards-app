@@ -46,16 +46,16 @@ export const ExampleWithForm = {
         <Modal open={open} setOpen={setOpen} title={'Dialog title'}>
           <Select label={'Select-box'} options={options} placeholder={'Select-box'} />
           <TextField
-            clearField={() => setValue1('')}
             label={'Input'}
             onChange={e => setValue1(e.currentTarget.value)}
+            onClearClick={() => setValue1('')}
             placeholder={'Input'}
             value={value1}
           />
           <TextField
-            clearField={() => setValue2('')}
             label={'Input'}
             onChange={e => setValue2(e.currentTarget.value)}
+            onClearClick={() => setValue2('')}
             placeholder={'Input'}
             value={value2}
           />
