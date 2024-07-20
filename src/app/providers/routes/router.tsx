@@ -7,8 +7,8 @@ import { useGetMeQuery } from '@/features'
 import { InitLoader } from '@/features/loading'
 
 function PrivateRoutes() {
-  const { data, isLoading } = useGetMeQuery()
-  const isAuthenticated = !!data && !('success' in data)
+  const { isError, isLoading } = useGetMeQuery()
+  const isAuthenticated = !isError
 
   if (isLoading) {
     return <InitLoader />

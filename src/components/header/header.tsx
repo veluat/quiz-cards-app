@@ -1,10 +1,10 @@
 import React from 'react'
 
 import Logo from '@/assets/images/logo-image'
+import { ProfileInfo, ProfileInfoProps } from '@/components/header/profile-info'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { DropDown, DropDownItem, DropDownItemWithIcon } from '@/components/ui/dropdown'
-import { ProfileInfo, ProfileInfoProps } from '@/components/ui/header/profile-info'
 import { Icon } from '@/components/ui/icon/icon'
 import { Typography } from '@/components/ui/typography'
 

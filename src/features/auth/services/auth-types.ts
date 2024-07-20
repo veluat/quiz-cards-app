@@ -9,7 +9,7 @@ export type LoginResponse = {
 }
 
 export type ProfileResponse = {
-  avatar: string
+  avatar?: null | string
   created: string
   email: string
   id: string
@@ -25,4 +25,5 @@ export type SignUpArgs = Omit<LoginArgs, 'rememberMe'>
 export type RecoverPasswordRequest = {
   email: string
   html: string
+  subject: string
 }

@@ -1,6 +1,6 @@
+import { ProfileInfo } from '@/components/header/profile-info'
 import { Avatar } from '@/components/ui/avatar'
 import { DropDown, DropDownItem, DropDownItemWithIcon } from '@/components/ui/dropdown'
-import { ProfileInfo } from '@/components/ui/header/profile-info'
 import { Icon } from '@/components/ui/icon/icon'
 import { Meta, StoryObj } from '@storybook/react'
 

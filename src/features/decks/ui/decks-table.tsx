@@ -1,9 +1,10 @@
 import React from 'react'
 
 import { decksTableColumns } from '@/common/consts'
-import { TableHeader } from '@/components/table-header'
 import { Table } from '@/components/ui/table'
 import { Deck } from '@/features/decks/services'
+
+import { TableHeader } from '../../../components/ui/table-header'
 
 type Props = {
   items: Deck[] | undefined

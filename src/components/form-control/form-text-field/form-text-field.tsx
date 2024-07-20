@@ -13,20 +13,12 @@ export const FormTextField = <T extends FieldValues>({
   ...rest
 }: FormTextFieldProps<T>) => {
   const {
-    field: { onChange, value, ...field },
+    field,
     fieldState: { error },
   } = useController({
     control,
     name,
   })
 
-  return (
-    <TextField
-      errorMessage={error?.message}
-      onChange={onChange}
-      value={value}
-      {...field}
-      {...rest}
-    />
-  )
+  return <TextField {...field} {...rest} errorMessage={error?.message} />
 }

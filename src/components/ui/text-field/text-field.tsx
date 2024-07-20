@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import { ChangeEvent, ComponentPropsWithoutRef, KeyboardEvent, forwardRef, useState } from 'react'
 
 import { Icon } from '@/components/ui/icon/icon'
 import { Typography } from '@/components/ui/typography'
@@ -7,18 +7,33 @@ import { clsx } from 'clsx'
 import s from './text-field.module.scss'
 
 export type TextFieldProps = {
-  clearField?: () => void
   errorMessage?: string
   label?: string
-  placeholder?: string
-  type?: 'password' | 'search' | 'text'
+  onChangeValue?: (value: string) => void
+  onClearClick?: () => void
+  onEnter?: ComponentPropsWithoutRef<'input'>['onKeyDown']
+  type?: 'email' | 'password' | 'search' | 'text'
 } & ComponentPropsWithoutRef<'input'>
 
 type TextFieldPropsType = Omit<ComponentPropsWithoutRef<'input'>, keyof TextFieldProps> &
   TextFieldProps
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
-  ({ className, clearField, errorMessage, label, placeholder, type = 'text', ...rest }, ref) => {
+  (
+    {
+      className,
+      errorMessage,
+      label,
+      onChange,
+      onChangeValue,
+      onClearClick,
+      onEnter,
+      onKeyDown,
+      type = 'text',
+      ...rest
+    },
+    ref
+  ) => {
     const [showPassword, setShowPassword] = useState(false)
 
     const isPasswordType = type === 'password'
@@ -33,6 +48,17 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
 
     const iconToRender = getIcon(isPasswordType, showPassword)
 
+    const onChangeValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+      onChange?.(e)
+      onChangeValue?.(e.currentTarget.value)
+    }
+
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+      if (e.code === 'Enter') {
+        onEnter?.(e)
+      }
+      onKeyDown?.(e)
+    }
     const styles = {
       input: clsx(
         s.input,
@@ -52,7 +78,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
           <div className={s.container}>
             <input
               className={styles.input}
-              placeholder={placeholder}
+              onChange={onChangeValueHandler}
+              onKeyDown={onKeyPressHandler}
               ref={ref}
               type={isPasswordType ? finalType : 'text'}
               {...rest}
@@ -71,12 +98,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
               <Icon className={styles.searchIcon} height={20} name={'search'} width={20} />
             )}
             {displayClearButton && (
-              <button
-                className={s.button}
-                disabled={rest.disabled}
-                onClick={clearField}
-                type={'button'}
-              >
+              <button className={s.button} onClick={onClearClick} type={'button'}>
                 <Icon height={16} name={'cross'} width={16} />
               </button>
             )}

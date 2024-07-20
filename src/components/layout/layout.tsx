@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
-import { Header } from '@/components/ui/header'
 import { useGetMeQuery, useLogoutMutation } from '@/features'
 
 import s from './layout.module.scss'
+
+import { Header } from '../header'
 
 export const Layout = () => {
   const { data } = useGetMeQuery()

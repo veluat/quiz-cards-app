@@ -1,4 +1,10 @@
-import { LoginArgs, ProfileResponse } from '@/features'
+import {
+  LoginArgs,
+  ProfileResponse,
+  RecoverPasswordRequest,
+  SignUpArgs,
+  UpdateProfileFormData,
+} from '@/features'
 import { baseApi } from '@/services/base-api'
 
 export const authService = baseApi.injectEndpoints({
@@ -37,8 +43,45 @@ export const authService = baseApi.injectEndpoints({
           url: `v1/auth/logout`,
         }),
       }),
+      recoverPassword: builder.mutation<void, RecoverPasswordRequest>({
+        query: body => ({
+          body,
+          method: 'POST',
+          url: 'v1/auth/recover-password',
+        }),
+      }),
+      resetPassword: builder.mutation<void, { password: string; token: string }>({
+        query: ({ password, token }) => ({
+          body: { password },
+          method: 'POST',
+          url: `v1/auth/reset-password/${token}`,
+        }),
+      }),
+      signUp: builder.mutation<ProfileResponse, SignUpArgs>({
+        query: body => ({
+          body,
+          method: 'POST',
+          url: `/v1/auth/sign-up`,
+        }),
+      }),
+      updateProfile: builder.mutation<ProfileResponse, UpdateProfileFormData>({
+        invalidatesTags: ['Me'],
+        query: body => ({
+          body,
+          method: 'PATCH',
+          url: `v1/auth/me`,
+        }),
+      }),
     }
   },
 })
 
-export const { useGetMeQuery, useLoginMutation, useLogoutMutation } = authService
+export const {
+  useGetMeQuery,
+  useLoginMutation,
+  useLogoutMutation,
+  useRecoverPasswordMutation,
+  useResetPasswordMutation,
+  useSignUpMutation,
+  useUpdateProfileMutation,
+} = authService

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { BrowserRouterDecorator } from '@/app/providers'
 
-import { Header } from './'
+import { Header } from './index'
 
 const meta = {
   component: Header,
