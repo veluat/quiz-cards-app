@@ -9,7 +9,7 @@ export type LoginResponse = {
 }
 
 export type ProfileResponse = {
-  avatar?: null | string
+  avatar?: string | undefined
   created: string
   email: string
   id: string
