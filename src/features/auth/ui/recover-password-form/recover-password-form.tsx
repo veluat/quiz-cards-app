@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 
+import { FormTextField } from '@/components/form-control/form-text-field'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { FormTextField } from '@/components/ui/form-control/form-text-field'
 import { Typography } from '@/components/ui/typography'
 import { RecoverPasswordFormProps, useRecoverPasswordForm } from '@/features'
 import { DevTool } from '@hookform/devtools'

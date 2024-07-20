@@ -1,6 +1,6 @@
+import { FormTextField } from '@/components/form-control/form-text-field'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { FormTextField } from '@/components/ui/form-control/form-text-field'
 import { Typography } from '@/components/ui/typography'
 import { CreateNewPasswordFormProps, useCreateNewPasswordForm } from '@/features'
 
