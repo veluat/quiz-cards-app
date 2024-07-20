@@ -11,7 +11,7 @@ import { Typography } from '@/components/ui/typography'
 import s from './header.module.scss'
 
 type Props = {
-  data: ProfileInfoProps | null
+  data: ProfileInfoProps
   logout: () => void
 }
 export const Header: React.FC<Props> = ({ data, logout }) => {
