@@ -27,7 +27,11 @@ export const AuthorizedUser: Story = {
 
 export const UnauthorizedUser: Story = {
   args: {
-    data: null,
+    data: {
+      avatar: null,
+      email: '',
+      name: '',
+    },
     logout: () => {},
   },
 }
