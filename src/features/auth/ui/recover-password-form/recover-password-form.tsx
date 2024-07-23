@@ -1,7 +1,8 @@
 import { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 
-import { FormTextField } from '@/components/form-control/form-text-field'
+import { RouteDefinitions } from '@/common/consts'
+import { FormControlTextField } from '@/components/form-control'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Typography } from '@/components/ui/typography'
@@ -25,7 +26,12 @@ export const RecoverPasswordForm = ({ onSubmit }: Props) => {
       </Typography>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <DevTool control={control} />
-        <FormTextField className={s.email} control={control} label={'Email'} name={'email'} />
+        <FormControlTextField
+          className={s.email}
+          control={control}
+          label={'Email'}
+          name={'email'}
+        />
         <Typography className={s.notification} variant={'body2'}>
           Enter your email address and we will send you further instructions
         </Typography>
@@ -36,7 +42,7 @@ export const RecoverPasswordForm = ({ onSubmit }: Props) => {
       <Typography className={s.promptText} variant={'body2'}>
         Did you remember your password?
       </Typography>
-      <Button as={Link} className={s.loggingIn} to={'/sign-up'} variant={'link'}>
+      <Button as={Link} className={s.loggingIn} to={RouteDefinitions.signIn} variant={'link'}>
         Try logging in
       </Button>
     </Card>

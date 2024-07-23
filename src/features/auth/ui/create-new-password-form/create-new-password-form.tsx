@@ -1,4 +1,4 @@
-import { FormTextField } from '@/components/form-control/form-text-field'
+import { FormControlTextField } from '@/components/form-control'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Typography } from '@/components/ui/typography'
@@ -19,7 +19,7 @@ export const CreateNewPasswordForm = ({ onSubmit }: Props) => {
         <Typography as={'h2'} variant={'h1'}>
           Create new password
         </Typography>
-        <FormTextField
+        <FormControlTextField
           className={s.input}
           control={control}
           label={'Password'}
