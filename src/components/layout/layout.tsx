@@ -36,7 +36,7 @@ export const Layout = () => {
           newestOnTop={false}
           pauseOnFocusLoss
           pauseOnHover
-          position={'bottom-left'}
+          position={'bottom-center'}
           rtl={false}
           theme={'dark'}
         />
