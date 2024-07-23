@@ -1,8 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 
-import { FormCheckbox } from '@/components/form-control/form-checkbox/form-checkbox'
-import { FormTextField } from '@/components/form-control/form-text-field'
+import { FormControlCheckbox, FormControlTextField } from '@/components/form-control'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Typography } from '@/components/ui/typography'
@@ -26,7 +25,7 @@ export const SignInForm = ({ onSubmit }: Props) => {
       </Typography>
       <form className={s.form} noValidate onSubmit={handleSubmit(onSubmit)}>
         <DevTool control={control} />
-        <FormTextField
+        <FormControlTextField
           className={s.email}
           control={control}
           label={'Email'}
@@ -34,7 +33,7 @@ export const SignInForm = ({ onSubmit }: Props) => {
           placeholder={'Email'}
           type={'email'}
         />
-        <FormTextField
+        <FormControlTextField
           className={s.password}
           control={control}
           label={'Password'}
@@ -42,7 +41,7 @@ export const SignInForm = ({ onSubmit }: Props) => {
           placeholder={'Password'}
           type={'password'}
         />
-        <FormCheckbox
+        <FormControlCheckbox
           className={s.checkbox}
           control={control}
           label={'Remember Me'}
