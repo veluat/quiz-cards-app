@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useState } from 'react'
+import { ChangeEvent, FC, memo, useEffect, useState } from 'react'
 
 import { validateFile } from '@/common/utils'
 import { Avatar } from '@/components/ui/avatar'
@@ -10,12 +10,12 @@ import s from './avatar-uploader.module.scss'
 type PropsType = {
   avatar?: string
   editable?: boolean
-  name: string
-  updateAvatar?: (formData: FormData) => void
+  updateAvatar?: (e: ChangeEvent<HTMLInputElement>) => void
+  userName: string
 }
 
 export const AvatarUploader: FC<PropsType> = memo(props => {
-  const { avatar, editable = true, name, updateAvatar } = props
+  const { avatar, editable = true, updateAvatar, userName } = props
   const [image, setImage] = useState(avatar)
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const AvatarUploader: FC<PropsType> = memo(props => {
 
   return (
     <div className={s.avatarContainer}>
-      <Avatar className={s.avatar} image={image} size={'large'} userName={name} />
+      <Avatar className={s.avatar} image={image} size={'large'} userName={userName} />
       {editable && (
         <Uploader
           accept={'image/*'}

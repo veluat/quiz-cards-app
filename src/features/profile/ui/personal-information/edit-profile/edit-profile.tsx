@@ -1,3 +1,4 @@
+import { FormControlTextField } from '@/components/form-control'
 import { Button } from '@/components/ui/button'
 import {
   EditProfileValues,
@@ -5,8 +6,6 @@ import {
 } from '@/features/profile/ui/personal-information/edit-profile/use-edit-profile'
 
 import s from './edit-profile.module.scss'
-
-import { FormControlTextField } from '../../../../../components/form-control/form-control-text-field'
 
 type Props = {
   initialValues?: EditProfileValues

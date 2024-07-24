@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
+import { requestHandler } from '@/common/utils'
 import { Card } from '@/components/ui/card'
 import { Typography } from '@/components/ui/typography'
+import { useProfile } from '@/features/profile/model'
 import { AvatarUploader } from '@/features/profile/ui/personal-information/avatar-uploader'
 import {
   EditProfile,
@@ -11,27 +14,17 @@ import { ProfileInfo } from '@/features/profile/ui/personal-information/profile-
 
 import s from './personal-information.module.scss'
 
-export type ProfileDataType = {
-  avatar?: string
-  email: string
-  name: string
-}
+export const PersonalInformation = () => {
+  const { logout, onUpdate, updateAvatar, user } = useProfile()
 
-type Props = {
-  data: ProfileDataType
-  update: (data: EditProfileValues) => void
-}
+  const [isEditMode, setIsEditMode] = useState(false)
 
-export const PersonalInformation = ({ data, update }: Props) => {
-  const { avatar, email, name } = data
-  const [editMode, setEditMode] = useState(false)
-  const onEditProfile = () => {
-    setEditMode(true)
-  }
-
-  const onSubmit = (data: EditProfileValues) => {
-    update(data)
-    setEditMode(false)
+  const onSubmit = async (data: EditProfileValues) => {
+    await requestHandler(async () => {
+      await onUpdate(data)
+      setIsEditMode(false)
+      toast.success('Your name successfully changed', { containerId: 'common' })
+    })
   }
 
   return (
@@ -39,11 +32,16 @@ export const PersonalInformation = ({ data, update }: Props) => {
       <Typography as={'h1'} className={s.title} variant={'h1'}>
         Personal Information
       </Typography>
-      <AvatarUploader avatar={avatar} editable={!editMode} name={name} />
-      {editMode ? (
-        <EditProfile initialValues={{ name }} onSubmit={onSubmit} />
+      <AvatarUploader
+        avatar={user.avatar}
+        editable={!isEditMode}
+        updateAvatar={updateAvatar}
+        userName={user.name}
+      />
+      {isEditMode ? (
+        <EditProfile initialValues={{ name: user.name }} onSubmit={onSubmit} />
       ) : (
-        <ProfileInfo email={email} name={name} onEditProfile={onEditProfile} />
+        <ProfileInfo onLogout={logout} setIsEditMode={setIsEditMode} user={user} />
       )}
     </Card>
   )
