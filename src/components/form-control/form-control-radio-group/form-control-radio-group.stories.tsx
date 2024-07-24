@@ -1,16 +1,16 @@
 import { CSSProperties } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { FormRadioGroup } from '@/components/form-control/form-radio-group/form-radio-group'
+import { FormControlRadioGroup } from '@/components/form-control/form-control-radio-group/form-control-radio-group'
 import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 import { Meta } from '@storybook/react'
 
 const meta = {
-  component: FormRadioGroup,
+  component: FormControlRadioGroup,
   title: 'Components/Form-Control/Form Radio Group',
-} satisfies Meta<typeof FormRadioGroup>
+} satisfies Meta<typeof FormControlRadioGroup>
 
 export default meta
 
@@ -57,11 +57,11 @@ export const ExampleWithForm = {
         <div style={styleWrapper}>
           <div>
             <Typography variant={'body2'}>Number:</Typography>
-            <FormRadioGroup control={control} name={'number'} options={formOptions.number} />
+            <FormControlRadioGroup control={control} name={'number'} options={formOptions.number} />
           </div>
           <div>
             <Typography variant={'body2'}>Color:</Typography>
-            <FormRadioGroup control={control} name={'color'} options={formOptions.color} />
+            <FormControlRadioGroup control={control} name={'color'} options={formOptions.color} />
           </div>
         </div>
         <Button fullWidth type={'submit'}>

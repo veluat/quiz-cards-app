@@ -1,29 +1,35 @@
 import type { Meta } from '@storybook/react'
 
-import { CSSProperties } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 
-import { FormCheckbox } from './form-checkbox'
+import { FormControlSelect } from './form-control-select'
 
 const meta = {
-  component: FormCheckbox,
-  title: 'Components/Form-Control/Form Checkbox',
-} satisfies Meta<typeof FormCheckbox>
+  component: FormControlSelect,
+  title: 'Components/Form-Control/Form Select',
+} satisfies Meta<typeof FormControlSelect>
 
 export default meta
 
-type FormValues = Record<'car' | 'carPark', boolean>
+const formOptions = [
+  { label: 'One', value: '1' },
+  { label: 'Two', value: '2' },
+  { label: 'Three', value: '3' },
+  { label: 'Four', value: '4' },
+  { label: 'Five', value: '5' },
+]
+
+type FormValues = Record<string, string>
 
 export const ExampleWithForm = {
   render: () => {
     const { control, handleSubmit } = useForm<FormValues>({
       defaultValues: {
-        car: true,
-        carPark: false,
+        number: '1',
       },
     })
 
@@ -31,19 +37,17 @@ export const ExampleWithForm = {
       alert(JSON.stringify(data))
     }
 
-    const styles: CSSProperties = {
-      display: 'flex',
-      justifyContent: 'space-between',
-      margin: '30px 0',
-    }
-
     return (
       <form onSubmit={handleSubmit(onSubmit)} style={{ maxWidth: '300px' }}>
         <DevTool control={control} />
-        <Typography>Form With Controlled Checkbox</Typography>
-        <div style={styles}>
-          <FormCheckbox control={control} label={'Car'} name={'car'} />
-          <FormCheckbox control={control} label={'Car Park'} name={'carPark'} />
+        <Typography>Form With Select</Typography>
+        <div style={{ margin: '30px 0' }}>
+          <FormControlSelect
+            control={control}
+            label={'Select:'}
+            name={'number'}
+            options={formOptions}
+          />
         </div>
         <Button fullWidth type={'submit'}>
           Send
