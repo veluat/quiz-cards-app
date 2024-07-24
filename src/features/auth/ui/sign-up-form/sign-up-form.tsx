@@ -2,7 +2,6 @@ import { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 
 import { RouteDefinitions } from '@/common/consts'
-import { FormTextField } from '@/components/form-control/form-text-field'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Typography } from '@/components/ui/typography'
@@ -10,6 +9,8 @@ import { SignUpFormProps, useSignUpForm } from '@/features'
 import { DevTool } from '@hookform/devtools'
 
 import s from './sign-up-form.module.scss'
+
+import { FormControlTextField } from '../../../../components/form-control/form-control-text-field'
 
 type Props = {
   className?: string
@@ -26,8 +27,13 @@ export const SignUpForm = ({ onSubmit }: Props) => {
       </Typography>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <DevTool control={control} />
-        <FormTextField className={s.email} control={control} label={'Email'} name={'email'} />
-        <FormTextField
+        <FormControlTextField
+          className={s.email}
+          control={control}
+          label={'Email'}
+          name={'email'}
+        />
+        <FormControlTextField
           className={s.password}
           control={control}
           label={'Password'}
@@ -35,7 +41,7 @@ export const SignUpForm = ({ onSubmit }: Props) => {
           placeholder={'Password'}
           type={'password'}
         />
-        <FormTextField
+        <FormControlTextField
           className={s.passwordConfirm}
           control={control}
           label={'Confirm Password'}

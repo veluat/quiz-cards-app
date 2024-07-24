@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 import Logo from '@/assets/images/logo-image'
+import { RouteDefinitions } from '@/common/consts'
 import { ProfileInfo, ProfileInfoProps } from '@/components/header/profile-info'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -15,11 +18,32 @@ type Props = {
   logout: () => void
 }
 export const Header: React.FC<Props> = ({ data, logout }) => {
-  const toProfile = () => {}
+  const navigate = useNavigate()
+  const handleClickLogo = () => {
+    if (!data) {
+      navigate(RouteDefinitions.signIn)
+      toast.error('Please sign in to continue')
+    } else {
+      navigate(RouteDefinitions.base)
+    }
+  }
+
+  const handleClickSignIn = () => {
+    navigate(RouteDefinitions.signIn)
+  }
+
+  const handleClickLogout = () => {
+    logout()
+    navigate(RouteDefinitions.signIn)
+  }
+
+  const toProfile = () => {
+    navigate(RouteDefinitions.profile)
+  }
 
   return (
     <div className={s.root}>
-      <div className={s.logo}>
+      <div className={s.logo} onClick={handleClickLogo}>
         <Logo />
       </div>
       {data ? (
@@ -29,7 +53,7 @@ export const Header: React.FC<Props> = ({ data, logout }) => {
           </Typography>
           <DropDown
             trigger={
-              <button className={s.dropdownButton}>
+              <button className={s.dropdownButton} type={'button'}>
                 <Avatar image={data.avatar} userName={data.name || data.email} />
               </button>
             }
@@ -44,14 +68,16 @@ export const Header: React.FC<Props> = ({ data, logout }) => {
             />
             <DropDownItemWithIcon
               icon={<Icon name={'logout'} />}
-              onSelect={logout}
+              onSelect={handleClickLogout}
               text={'Sign out'}
             />
           </DropDown>
         </div>
       ) : (
         <div>
-          <Button variant={'secondary'}>Sign In</Button>
+          <Button onClick={handleClickSignIn} variant={'secondary'}>
+            Sign In
+          </Button>
         </div>
       )}
     </div>

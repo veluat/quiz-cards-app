@@ -5,15 +5,14 @@ import { z } from 'zod'
 
 const recoverPasswordSchema = z.object({
   email: z.string().email(),
+  html: z.string(),
 })
 
 export type RecoverPasswordFormProps = z.infer<typeof recoverPasswordSchema>
 
 export const useRecoverPasswordForm = () => {
-  const { control, handleSubmit } = useForm<RecoverPasswordFormProps>({
+  return useForm<RecoverPasswordFormProps>({
     defaultValues: { email: '' },
     resolver: zodResolver(recoverPasswordSchema),
   })
-
-  return { control, handleSubmit }
 }

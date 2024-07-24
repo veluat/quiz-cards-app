@@ -6,12 +6,12 @@ import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 import { Meta, StoryObj } from '@storybook/react'
 
-import { FormTextField } from './form-text-field'
+import { FormControlTextField } from './form-control-text-field'
 
 const meta = {
-  component: FormTextField,
+  component: FormControlTextField,
   title: 'Components/Form-Control/Form Text Field',
-} satisfies Meta<typeof FormTextField>
+} satisfies Meta<typeof FormControlTextField>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -40,8 +40,8 @@ export const ExampleWithForm: Story = {
       <form onSubmit={handleSubmit(onSubmit)} style={styles}>
         <DevTool control={control} />
         <Typography>Form With Controlled Text Fields</Typography>
-        <FormTextField control={control} label={'First Name'} name={'firstName'} />
-        <FormTextField control={control} label={'Last Name'} name={'lastName'} />
+        <FormControlTextField control={control} label={'First Name'} name={'firstName'} />
+        <FormControlTextField control={control} label={'Last Name'} name={'lastName'} />
         <Button fullWidth type={'submit'}>
           Send
         </Button>

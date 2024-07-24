@@ -1,4 +1,3 @@
-import { FormTextField } from '@/components/form-control/form-text-field'
 import { Button } from '@/components/ui/button'
 import {
   EditProfileValues,
@@ -6,6 +5,8 @@ import {
 } from '@/features/profile/ui/personal-information/edit-profile/use-edit-profile'
 
 import s from './edit-profile.module.scss'
+
+import { FormControlTextField } from '../../../../../components/form-control/form-control-text-field'
 
 type Props = {
   initialValues?: EditProfileValues
@@ -17,7 +18,12 @@ export const EditProfile = ({ initialValues, onSubmit }: Props) => {
 
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-      <FormTextField className={s.input} control={control} label={'Nickname'} name={'name'} />
+      <FormControlTextField
+        className={s.input}
+        control={control}
+        label={'Nickname'}
+        name={'name'}
+      />
       <Button fullWidth type={'submit'}>
         Save Changes
       </Button>
